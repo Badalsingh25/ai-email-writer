@@ -1,0 +1,70 @@
+:root {
+  /* ---- Color tokens ---- */
+  --ink: #14112b;           /* page background — deep indigo-black, not flat black */
+  --ink-soft: #1a1633;      /* secondary background band */
+  --surface: #1e1a3a;       /* card surface */
+  --surface-raised: #262048;/* inputs, hover states */
+  --hairline: #362f5e;      /* borders */
+  --hairline-soft: #2a2450;
+
+  --text-primary: #f5f3ff;
+  --text-muted: #a79fd1;
+  --text-faint: #6f6796;
+
+  --accent-indigo: #6366f1;
+  --accent-violet: #8b5cf6;
+  --accent-coral: #ff8966;  /* signature warm accent — used sparingly */
+
+  /* tone identity colors — each tone keeps this color everywhere it appears */
+  --tone-professional: #6366f1;
+  --tone-friendly: #ff8966;
+  --tone-casual: #2dd4bf;
+  --tone-formal: #94a3b8;
+
+  /* ---- Type tokens ---- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--ink);
+  background-image:
+    radial-gradient(ellipse 900px 500px at 12% -10%, rgba(139, 92, 246, 0.16), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 10%, rgba(99, 102, 241, 0.10), transparent 55%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: var(--text-primary);
+}
+
+/* Visible keyboard focus everywhere — accessibility floor */
+:focus-visible {
+  outline: 2px solid var(--accent-violet);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,289 @@
+/* ---------- Layout shell ---------- */
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 72px 24px 96px;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 48px 16px 72px;
+  }
+}
+
+/* ---------- Header / masthead ---------- */
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 22px 54px;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.headline em {
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--accent-violet), var(--accent-coral));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Letter card ---------- */
+.letter-card {
+  margin-top: 40px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 600px) {
+  .letter-card {
+    padding: 20px;
+  }
+}
+
+.field-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.quote-rail {
+  border-left: 3px solid var(--hairline);
+  padding-left: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.quote-rail:focus-within {
+  border-color: var(--accent-violet);
+}
+
+.char-count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  text-align: right;
+  margin-top: 6px;
+}
+
+/* ---------- Tone pills ---------- */
+.tone-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0 26px;
+}
+
+.tone-pill {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--hairline);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tone-pill:hover {
+  transform: translateY(-1px);
+  border-color: var(--tone-color, var(--accent-violet));
+}
+
+.tone-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tone-color, var(--text-faint));
+  flex-shrink: 0;
+}
+
+.tone-pill.selected {
+  background: color-mix(in srgb, var(--tone-color, var(--accent-violet)) 16%, transparent);
+  border-color: var(--tone-color, var(--accent-violet));
+  color: var(--text-primary);
+  box-shadow: 0 0 0 1px var(--tone-color, var(--accent-violet)) inset, 0 6px 18px -8px var(--tone-color, var(--accent-violet));
+}
+
+/* ---------- Generate button ---------- */
+.generate-btn {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 20px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  color: white;
+  background: linear-gradient(135deg, var(--accent-indigo), var(--accent-violet));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease;
+  box-shadow: 0 10px 30px -12px rgba(99, 102, 241, 0.6);
+}
+
+.generate-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px -12px rgba(99, 102, 241, 0.75);
+}
+
+.generate-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+.plane-icon {
+  transition: transform 0.3s ease;
+}
+
+.generate-btn.sending .plane-icon {
+  animation: fly-away 0.9s ease-in-out infinite;
+}
+
+@keyframes fly-away {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  60%  { transform: translate(22px, -10px) rotate(8deg); opacity: 0; }
+  61%  { transform: translate(-22px, 10px) rotate(0deg); opacity: 0; }
+  100% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+}
+
+/* ---------- Error ---------- */
+.error-banner {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(255, 137, 102, 0.1);
+  border: 1px solid rgba(255, 137, 102, 0.4);
+  color: #ffb199;
+  font-size: 13.5px;
+}
+
+/* ---------- Reply card ---------- */
+.reply-section {
+  margin-top: 36px;
+  animation: rise-in 0.4s ease both;
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reply-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.reply-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.reply-card {
+  background: var(--surface-raised);
+  border: 1px solid var(--hairline-soft);
+  border-radius: 14px;
+  padding: 22px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  min-height: 120px;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--accent-coral);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 0.9s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.copy-btn {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1.5px solid var(--hairline);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.copy-btn:hover {
+  border-color: var(--accent-violet);
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.copy-btn.copied {
+  border-color: var(--tone-casual, #2dd4bf);
+  color: var(--tone-casual, #2dd4bf);
+}

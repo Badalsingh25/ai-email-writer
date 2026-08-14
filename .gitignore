@@ -1,0 +1,63 @@
+### IntelliJ IDEA ###
+# This is where GEMINI_URL / GEMINI_KEY env vars live in your Run Configuration.
+# NEVER remove this line — committing .idea/ is how API keys leak onto GitHub.
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+### Eclipse / STS (in case you ever open it there) ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+
+### VS Code ###
+.vscode/
+*.code-workspace
+
+### Java / Maven / Spring Boot (email-writer-backend) ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+!**/src/main/**/target/
+!**/src/test/**/target/
+HELP.md
+
+### Node / React (email-writer-react) ###
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+### Environment files — never commit real secrets ###
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+### Logs ###
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+### OS files ###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+
+### Build artifacts / release zips — attach these to GitHub Releases, don't commit them ###
+*.zip
