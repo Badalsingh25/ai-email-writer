@@ -9,7 +9,7 @@
     "128": "icons/icon128.png"
   },
   "permissions": ["activeTab", "storage"],
-  "host_permissions": [ "http://localhost:8080/*", "*://mail.google.com/*"],
+  "host_permissions": [ "https://ai-email-writer-vamd.onrender.com/*", "*://mail.google.com/*"],
   "content_scripts": [
     {
       "js": ["content.js"],

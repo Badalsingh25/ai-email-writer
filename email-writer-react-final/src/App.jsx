@@ -10,7 +10,9 @@ const TONES = [
   { value: 'formal', label: 'Formal', color: 'var(--tone-formal)' },
 ];
 
-const BACKEND_URL = 'http://localhost:8080/api/email/generate';
+
+const BACKEND_URL = 'https://ai-email-writer-vamd.onrender.com/api/email/generate';
+// const BACKEND_URL = 'http://localhost:8080/api/email/generate';
 
 function MarkIcon() {
   return (

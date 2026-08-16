@@ -1,5 +1,8 @@
 console.log("Email Writer Extension - Content Script loaded");
 
+const BACKEND_URL = "https://ai-email-writer-vamd.onrender.com/api/email/generate";
+
+
 function creatingAIButton() {
     const button = document.createElement('div');
 
@@ -101,7 +104,7 @@ function injectButton() {
 
             console.log('Selected tone:',selectedTone);
 
-            const response = await fetch('http://localhost:8080/api/email/generate', {
+            const response = await fetch(BACKEND_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
